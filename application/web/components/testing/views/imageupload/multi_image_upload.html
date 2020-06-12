@@ -1,0 +1,45 @@
+<form enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="singleImageUpload" class="col-sm-2 control-label">Upload Image</label>
+        <div class="col-sm-5">
+            <input type="file" class="form-control," id="fileSingleImageUpload_0" name="fileSingleImageUpload_0">
+        </div>
+        <div class="col-sm-5">
+            <input type="file" class="form-control" id="fileSingleImageUpload_1" name="fileSingleImageUpload_1">
+        </div>
+        <div class="col-sm-5">
+            <input type="file" class="form-control" id="fileSingleImageUpload_2" name="fileSingleImageUpload_2">
+        </div>
+        <div class="col-sm-5">
+            <input type="file" class="form-control" id="fileSingleImageUpload_3" name="fileSingleImageUpload_3">
+        </div>
+        <div class="col-sm-5">
+            <input type="file" class="form-control" id="fileSingleImageUpload_4" name="fileSingleImageUpload_4">
+        </div>
+        <div class="col-sm-5">
+            <input type="button" id="btnSingleImageUpload" name="btnSingleImageUpload" value="Upload" class="btn btn-info" onclick="UploadSingleImage()"
+            />
+        </div>
+        <div class="col-sm-5">
+            <input type="button" id="btnSingleImageUpload" name="btnSingleImageUpload" value="Upload" class="btn btn-info" onclick="UploadSingleImage()"
+            />
+        </div>
+
+    </div>
+</form>
+
+
+<script>
+    function UploadMultiImageImage() {
+        let imgFile = document.getElementById("fileSingleImageUpload");
+        console.log(imgFile.files[0]);
+        const formData = new FormData()
+        formData.append('myFile', imgFile.files[0])
+        PostAjaxFileUpload(om.RootController + '/api/products/singleimageupload', formData, HandleSingleImageUploadResponse);
+    }
+
+    function HandleSingleImageUploadResponse(res) {
+        console.log("", res)
+    }
+
+</script>

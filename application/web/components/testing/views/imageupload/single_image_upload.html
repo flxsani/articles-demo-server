@@ -1,0 +1,29 @@
+<form enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="singleImageUpload" class="col-sm-2 control-label">Upload Image</label>
+        <div class="col-sm-5">
+            <input type="file" class="form-control" id="fileSingleImageUpload" name="fileSingleImageUpload">
+        </div>
+        <div class="col-sm-5">
+            <input type="button" id="btnSingleImageUpload" name="btnSingleImageUpload" value="Upload" class="btn btn-info" onclick="UploadSingleImage()"
+            />
+        </div>
+
+    </div>
+</form>
+
+
+<script>
+    function UploadSingleImage() {
+        let imgFile = document.getElementById("fileSingleImageUpload");
+        console.log(imgFile.files[0]);
+        const formData = new FormData()
+        formData.append('myFile', imgFile.files[0])
+        PostAjaxFileUpload(om.RootController + '/api/products/singleimageupload', formData, HandleSingleImageUploadResponse);
+    }
+
+    function HandleSingleImageUploadResponse(res) {
+        console.log("", res)
+    }
+
+</script>
